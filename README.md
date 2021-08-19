@@ -5,7 +5,7 @@ _This documentation is intended as an overview for facility support staff and do
 
 ## What is SHPC and why is it useful?
 SHPC is a utility that allows the installation of containers as modules. This approach is largely automated and reduces the complexity of deploying and using containers. It also has the benefit of hiding the Singularity syntax for these _"modular containers"_, which reduces the complexity for users. 
-When a container is loaded as a module, one can invoke the container with just name of the tool. For example, one could use `module load blast+` and then call blast+ with `blastn` rather than `singularity exec <container_name> blastn`.  
+When a container is loaded as a module, one can invoke the container with just name of the tool. For example, one could use `module load blast+` and then call BLAST+ with `blastn` rather than `singularity exec <container_name> blastn`.  
 For containerised applications that are already available in the SHPC registry, installing and using them via SHPC is much simpler than using Singularity itself. For applications that are not yet in the registry, writing a custom container recipe may still be more time effective than learning how to use Singularity.
 
 
@@ -15,7 +15,7 @@ To use SHPC, the following tools are required:
 * A container runtime, currently one of Singularity, Docker or Podman
 * System modules, either LMOD (better supported) or Environment Modules
 
-As a template, the installation script for Zeus at the Pawsey Centre is provided: [`install-shpc-zeus.sh`]({{ page.root }}/files/install-shpc-zeus.sh). The key steps are:
+As a template, the installation script for Zeus at the Pawsey Centre is provided: [`install-shpc-zeus.sh`](files/install-shpc-zeus.sh). The key steps are:
 
 * ensure `PATH` and `PYTHONPATH` include SHPC paths ahead of the installation;
 
@@ -33,7 +33,7 @@ As a template, the installation script for Zeus at the Pawsey Centre is provided
 
 * install SHPC using _pip_:
   ```bash
-  pip install -e . --prefix="$(pwd)"
+  $ pip install -e . --prefix="$(pwd)"
 
   [..]
   ```
@@ -80,7 +80,7 @@ INFO:    Creating SIF file...
 Module quay.io/biocontainers/bwa:0.7.17--h5bf99c6_8 was created.
 ```
 
-The module can then be loaded, and the tools is available with familiar syntax:
+The BWA module can then be loaded, and the tool is available using its familiar syntax:
 
 ```bash
 # search module
