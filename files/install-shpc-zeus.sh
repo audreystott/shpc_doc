@@ -33,7 +33,6 @@ export PYTHONPATH="$lib_dir:$PYTHONPATH"
 export PATH="$bin_dir:$PATH"
 
 # Get SHPC repo and checkout desired version/commit
-here=$(pwd)
 git clone https://github.com/singularityhub/singularity-hpc.git
 cd singularity-hpc
 git checkout $shpc_checkout
@@ -41,7 +40,7 @@ git checkout $shpc_checkout
 # Pip installation
 pip install -e . --prefix="$(pwd)"
 exitcode="$?"
-cd $here
+cd ..
 
 echo ""
 if [ "$exitcode" == "0" ] ; then
