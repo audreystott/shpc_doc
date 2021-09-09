@@ -10,8 +10,8 @@ For containerised applications that are already available in the SHPC registry, 
 
 
 ## Prerequisites and installation
-To use SHPC, the following tools are required:
-* Python 3
+To install and use SHPC, the following tools need to be available:
+* Python 3, with _pip_ and _setuptools_
 * A container runtime, currently one of Singularity, Docker or Podman
 * System modules, either LMOD (better supported) or Environment Modules
 
@@ -31,14 +31,22 @@ As a template, the installation script for Zeus at the Pawsey Centre is provided
   [..]
   ```
 
-* install SHPC using _pip_:
+* install SHPC using `pip`:
   ```bash
   $ pip install -e . --prefix="$(pwd)"
 
   [..]
   ```
 
-* (optional) customise the SHPC configuration using the `shpc config` subcommand.
+* (optional) customise the SHPC configuration using the `shpc config` subcommand;
+  * you might want to maintain containers and modulefiles in distinct directories, for instance:
+    ```bash
+    shpc config set container_base:\$root_dir/containers
+    ```
+  * or, you might need your modulefiles to load a _singularity_ module:
+    ```bash
+    shpc config set singularity_module:singularity
+    ```
 
 
 ## Installing and using container modules
