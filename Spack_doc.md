@@ -12,26 +12,27 @@ Spack is a package manager designed for HPC that supports multiple versions and 
 - Creating new Spack install recipes packages is fairly easy, requiring a URL for the source archive
 - Can be tuned for usage of available compilers and performance libraries, specification of directory trees for installed packages and modules, and control over naming convention and features of generated modulefiles
 
-## Pre-requisites
-**Essential**
-Python 2.6/2.7/3.5-3.9
-C/C++ Compilers
-make
-patch
-bash
-tar
-gzip
-unzip
-bzip
-xz
-file
-gnupg2
-git
-**Optional**
-svn
-hg
-zstd
-Python header files
+## Pre-requisites 
+**Essential** 
+Python 2.6/2.7/3.5-3.9 
+C/C++ Compilers 
+make 
+patch 
+bash 
+tar 
+gzip 
+unzip 
+bzip 
+xz 
+file 
+gnupg2 
+git 
+
+**Optional** 
+svn 
+hg 
+zstd 
+Python header files 
 
 ## Installation
 You can clone Spack from the github repository using this command:
