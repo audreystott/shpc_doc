@@ -143,7 +143,7 @@ $ head -4 /dir/to/spack/share/spack/lmod/linux-sles15-x86_64/gcc/11.1.0/fftw/3.3
 ## Spack configuration for system administrators
 Whereas the default configurations may work well for single-user installations on workstations and cloud, administrators of institutional clusters typically need to customise Spack configuration. Spack allows to customise a lot of its functionalities, by editing dedicated YAML configuration files. The most important ones are:
 - `compilers.yaml`: manually specify location of system compilers (`spack compiler find` can assist)
-- `packages.yaml`: among other options, specify location of system packages that need to be used instead of Spack-built ones; a good use case is for MPI libraries that are already configured for the system interconnect (`spack external find` can assist). Also
+- `packages.yaml`: among other options, specify location of system packages that need to be used instead of Spack-built ones; a good use case is for MPI libraries that are already configured for the system interconnect (`spack external find` can assist)
 - `config.yaml`: specify paths for service directories, such as for builds and caches; also customise some high-level options
 - `modules.yaml`: customise modulefile generation
 
