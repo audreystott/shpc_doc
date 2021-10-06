@@ -47,6 +47,15 @@ The default git branch is the _develop_ one. This is where developers daily comm
 $ git checkout releases/v0.16
 ```
 
+### Configuration for system administrators
+Whereas the default configurations may work well for single-user installations on workstations and cloud, administrators of institutional clusters typically need to customise Spack configuration. Spack allows to customise a lot of its functionalities, by editing dedicated YAML configuration files. The most important ones are:
+- `compilers.yaml`: manually specify location of system compilers (`spack compiler find` can assist)
+- `packages.yaml`: among other options, specify location of system packages that need to be used instead of Spack-built ones; a good use case is for MPI libraries that are already configured for the system interconnect (`spack external find` can assist)
+- `config.yaml`: specify paths for service directories, such as for builds and caches; also customise some high-level options
+- `modules.yaml`: customise modulefile generation
+
+Pawsey will host its Spack configuration files for Setonix on Github at [PawseySC/pawsey-spack-config](https://github.com/PawseySC/pawsey-spack-config). Meanwhile, some test configuration files are available, that can be helpful as a starting point, _e.g._ [zeus_marco/configs](https://github.com/PawseySC/pawsey-spack-config/tree/main/examples/zeus_marco/configs).
+
 ## Using Spack
 
 First, users need to enable the Spack shell configurations with the following command (assuming that Spack is installed in `$MYSPACK` and that the `bash` shell is in use):
@@ -106,7 +115,6 @@ $ spack load --sh fftw@3.3.7 # try loading a specific version
 $ spack load --sh fftw@3.3.7+openmp 
 ```
 
-
 ## Generating and using a modulefile
 To generate modulefiles for Spack-built packages use the idiomatic syntax below. You will then be able to see them with `module avail` and use them with `module load/unload` (a shell logout/login may be required the first time).
 
@@ -138,13 +146,3 @@ $ head -4 /dir/to/spack/share/spack/lmod/linux-sles15-x86_64/gcc/11.1.0/fftw/3.3
 $ head -4 /dir/to/spack/share/spack/lmod/linux-sles15-x86_64/gcc/11.1.0/fftw/3.3.7-ibdoa45.lua | tail -1
 -- fftw@3.3.7%gcc@11.1.0~mpi+openmp+pfft_patches patches=8132c27659f992311dcf3d1500056e0f9400aa22f6824124e3607dbaa8dfe3c0 precision=double,float arch=linux-sles15-zen3/ibdoa45
 ```
-
-
-## Spack configuration for system administrators
-Whereas the default configurations may work well for single-user installations on workstations and cloud, administrators of institutional clusters typically need to customise Spack configuration. Spack allows to customise a lot of its functionalities, by editing dedicated YAML configuration files. The most important ones are:
-- `compilers.yaml`: manually specify location of system compilers (`spack compiler find` can assist)
-- `packages.yaml`: among other options, specify location of system packages that need to be used instead of Spack-built ones; a good use case is for MPI libraries that are already configured for the system interconnect (`spack external find` can assist)
-- `config.yaml`: specify paths for service directories, such as for builds and caches; also customise some high-level options
-- `modules.yaml`: customise modulefile generation
-
-Pawsey will host its Spack configuration files for Setonix on Github at [PawseySC/pawsey-spack-config](https://github.com/PawseySC/pawsey-spack-config). Meanwhile, some test configuration files are available, that can be helpful as a starting point, _e.g._ [zeus_marco/configs](https://github.com/PawseySC/pawsey-spack-config/tree/main/examples/zeus_marco/configs).
