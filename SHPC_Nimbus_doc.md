@@ -101,7 +101,7 @@ aliases:
 
 # install desired version tag
 $ shpc install quay.io/biocontainers/bwa:0.7.17--h5bf99c6_8
-singularity pull --name /tmp/shpc-containers/quay.io/biocontainers/bwa/0.7.17--h84994c4_4/quay.io-biocontainers-bwa-0.7.17--h84994c4_4-sha256:4f183ae370c240d175cd55424538b39f047c8add50896de896f0d12a73d4a9a0.sif docker://quay.io/biocontainers/bwa@sha256:4f183ae370c240d175cd55424538b39f047c8add50896de896f0d12a73d4a9a0
+singularity pull --name /data/shpc-containers/quay.io/biocontainers/bwa/0.7.17--h84994c4_4/quay.io-biocontainers-bwa-0.7.17--h84994c4_4-sha256:4f183ae370c240d175cd55424538b39f047c8add50896de896f0d12a73d4a9a0.sif docker://quay.io/biocontainers/bwa@sha256:4f183ae370c240d175cd55424538b39f047c8add50896de896f0d12a73d4a9a0
 INFO:    Converting OCI blobs to SIF format
 INFO:    Starting build...
 Getting image source signatures
@@ -109,7 +109,7 @@ Getting image source signatures
 [..]
  
 INFO:    Creating SIF file...
-/tmp/shpc-containers/quay.io/biocontainers/bwa/0.7.17--h84994c4_4/quay.io-biocontainers-bwa-0.7.17--h84994c4_4-sha256:4f183ae370c240d175cd55424538b39f047c8add50896de896f0d12a73d4a9a0.sif
+/data/shpc-containers/quay.io/biocontainers/bwa/0.7.17--h84994c4_4/quay.io-biocontainers-bwa-0.7.17--h84994c4_4-sha256:4f183ae370c240d175cd55424538b39f047c8add50896de896f0d12a73d4a9a0.sif
 Module quay.io/biocontainers/bwa:0.7.17--h84994c4_4 was created.
 ```
 
@@ -138,13 +138,13 @@ Here is an example with the Velvet pacakge:
 ```bash
 # get registry location
 $ shpc config get registry
-registry                       /group/pawsey0001/mdelapierre/software/shpc/registry
+registry                       /shpc/registry
  
 # create directory tree for desired Velvet container recipe
-$ mkdir -p /group/pawsey0001/mdelapierre/software/shpc/registry/quay.io/biocontainers/velvet
+$ mkdir -p /shpc/registry/quay.io/biocontainers/velvet
  
 # create a new YAML container recipe in the new path (using vi as text editor here)
-$ vi /group/pawsey0001/mdelapierre/software/shpc/registry/quay.io/biocontainers/velvet/container.yaml
+$ vi /shpc/registry/quay.io/biocontainers/velvet/container.yaml
 ```
 
 Let’s look at the contents of the yaml file for Velvet.
