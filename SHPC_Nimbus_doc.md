@@ -68,9 +68,9 @@ To install and use SHPC, the following tools need to be available:
     sudo mkdir /shpc/registry
     sudo chown ubuntu /shpc/*
     sudo mv registry/* /shpc/registry/
-    mkdir -p /tmp/shpc-containers
-    sudo chown ubuntu /tmp/shpc-containers
-    shpc config set container_base:/tmp/shpc-containers
+    mkdir /data/shpc-containers/
+    sudo chown ubuntu /data/shpc-containers/
+    shpc config set container_base:/data/shpc-containers/
     shpc config set module_base:/shpc/modules
     shpc config add registry:/shpc/registry
 
