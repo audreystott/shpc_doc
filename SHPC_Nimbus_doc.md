@@ -63,7 +63,7 @@ To install and use SHPC, the following tools need to be available:
     sudo chown ubuntu /shpc
     git clone https://github.com/singularityhub/singularity-hpc.git
     cd singularity-hpc
-    pip install -e .[all]
+    sudo pip install -e .[all]
     cd ..
     sudo mkdir /shpc/modules
     sudo mkdir /shpc/registry
