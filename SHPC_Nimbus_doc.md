@@ -52,25 +52,26 @@ To install and use SHPC, the following tools need to be available:
     fi
     fi' >> ~/.bashrc
     
-    sudo echo 'module use /shpc/modules' >> ~/.bashrc
+    sudo echo 'module use /SHPC/singularity-hpc/modules' >> ~/.bashrc
     
     cd ..
     rm -rf Lmod-8.5/
 
 ### Install SHPC:
 
+    sudo mkdir /shpc
+    sudo chown ubuntu /shpc
     git clone https://github.com/singularityhub/singularity-hpc.git
     cd singularity-hpc
     pip install -e .[all]
-    sudo mkdir /shpc
-    sudo chown ubuntu /shpc
+    cd ..
     sudo mkdir /shpc/modules
     sudo mkdir /shpc/registry
     sudo chown ubuntu /shpc/*
-    sudo mv registry/* /shpc/registry/
-    mkdir /data/shpc-containers/
-    sudo chown ubuntu /data/shpc-containers/
-    shpc config set container_base:/data/shpc-containers/
+    sudo mv singularity-hpc/registry/* /shpc/registry/
+    mkdir $HOME/containers
+    sudo chown ubuntu $HOME/containers
+    shpc config set container_base:$HOME/containers
     shpc config set module_base:/shpc/modules
     shpc config add registry:/shpc/registry
 
@@ -177,3 +178,9 @@ Let's comment on the key components of this YAML file:
 * `aliases` is a list of command names that will be made available by the SHPC module, with the corresponding commands from inside the container; these need to be manually provided, either by reading through the documentation of the package, or by downloading and inspecting the container
 
 Once you have finished writing the recipe, you can install Velvet just as we did with BWA previously. 
+
+## Updating the registry
+Run the following commands to update your local SHPC registry:
+
+    git clone https://github.com/singularityhub/singularity-hpc.git
+    sudo mv $PWD/singularity-hpc/registry/* /shpc/registry/
